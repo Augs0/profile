@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Odibee+Sans&display=swap');
+
+*{
+  box-sizing:border-box;  
+}
+
+body{
+  font-family:'Odibee Sans', cursive;
+  padding:0;
+  margin:0;
+  /*setting the body to flex will align everything center so you don't need margins, etc for the container*/
+  display: flex;
+	margin-top:10px;
+	justify-content: center;
+	min-height: 100vh;
+  background:#4f5ec9;
+}
+
+.container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.user-img{
+  z-index:3; /*z-index is very important for this layout as if you use minus indexes, you potentially become unable to interact with some elements - increase the index with each layer from the bottom up*/
+ color:white; background:url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Paco_Le%C3%B3n_en_el_programa_Lo_Siguiente_de_TVE.jpg/220px-Paco_Le%C3%B3n_en_el_programa_Lo_Siguiente_de_TVE.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end; /*sets text to bottom of container in column*/
+  width:300px;
+  height:300px;
+  border:black 6px solid;
+  border-radius:5px;
+  text-shadow: 1px 1px 1px #000; /*better supported than text-stroke*/
+  transition:filter ease-in-out 0.5s;
+}
+
+.user-img h1{
+  margin:0;
+  font-size:25px;
+}
+
+.user-img h2{
+  margin:0;
+  font-size:20px;
+}
+
+.user-img h1, h2{
+  text-transform:uppercase;
+}
+
+.user-img:hover{
+  filter:grayscale(100%);
+}
+
+.stats{
+	display: flex;
+  border-radius:5px;
+  background:white;
+	justify-content: space-around;
+	list-style-type: none;
+	width: 70%; /*of container*/
+  height:100px;
+	text-align: center;
+  border-radius:5px;
+  margin-top:-30px;
+  padding:15px 0; /*helps with centering*/
+  z-index:2;
+}
+
+.stats li{
+  padding:10px;
+}
+
+.follow-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:black;
+  color:white;
+  width:100px;
+  height:50px;
+  text-transform:uppercase;
+  margin-top:-30px;
+  border-radius:5px;
+  z-index:1;
+  text-decoration:none;
+}
+
+.follow-btn:hover{
+  cursor:pointer;
+}
+
+.follow-btn:hover .fa-instagram{
+  background-image: linear-gradient(to left, violet, orange, pink);   
+  -webkit-background-clip: text;
+  -moz-background-clip: text; 
+  background-clip: text;
+  color: transparent;
+}
+
+.fa-instagram{
+  font-size:20px;
+  padding-left:5px;
+}
+
+footer{
+  font-family:'Montserrat', sans-serif;
+  display:flex;
+  padding:10px 0px 0px 0px;
+  font-size:14px;
+  align-items:center;
+  justify-content:space-around;
+  position:fixed;
+  bottom:0;
+  background-color:black;
+  color:white;
+  width:100vw;
+}
+
+footer > h2{
+  margin:0;
+  padding:0 10px;
+}
+
+#projectSrcBtn{
+  background:transparent;
+  color:white;
+  border-radius:20px;
+  text-decoration:none;
+  border:1px solid white;
+  padding:5px;
+  margin-bottom:10px;
+}
+
+
+@media (max-width: 400px){
+   footer{
+    display:block;
+  }
+  footer > h2{
+    font-size:1em;
+  }
+  #projectSrcBtn{
+    position:absolute;
+    top:5px;
+    font-size:0.5em;
+    right:20px;
+  }
+}
